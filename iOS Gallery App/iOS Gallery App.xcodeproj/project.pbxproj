@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C96F4657260ABAD40001275D /* ImagePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96F4656260ABAD40001275D /* ImagePreviewVC.swift */; };
 		C98016D1260A318500092526 /* iOS_Gallery_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98016D0260A318500092526 /* iOS_Gallery_AppApp.swift */; };
 		C98016D3260A318500092526 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98016D2260A318500092526 /* ContentView.swift */; };
 		C98016D5260A318700092526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C98016D4260A318700092526 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C96F4656260ABAD40001275D /* ImagePreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewVC.swift; sourceTree = "<group>"; };
 		C98016CD260A318500092526 /* iOS Gallery App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Gallery App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C98016D0260A318500092526 /* iOS_Gallery_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Gallery_AppApp.swift; sourceTree = "<group>"; };
 		C98016D2260A318500092526 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				C98016D0260A318500092526 /* iOS_Gallery_AppApp.swift */,
 				C98016D2260A318500092526 /* ContentView.swift */,
+				C96F4656260ABAD40001275D /* ImagePreviewVC.swift */,
 				C98016D4260A318700092526 /* Assets.xcassets */,
 				C98016D9260A318700092526 /* Info.plist */,
 				C98016D6260A318700092526 /* Preview Content */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C96F4657260ABAD40001275D /* ImagePreviewVC.swift in Sources */,
 				C98016D3260A318500092526 /* ContentView.swift in Sources */,
 				C98016D1260A318500092526 /* iOS_Gallery_AppApp.swift in Sources */,
 			);
