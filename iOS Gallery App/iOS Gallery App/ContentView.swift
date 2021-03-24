@@ -49,11 +49,9 @@ class ContentView: UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        
         let vc=ImagePreviewVC()
         vc.imgArray = self.imageArray
         vc.passedContentOffset = indexPath
-        vc.mindex = indexPath.item
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
