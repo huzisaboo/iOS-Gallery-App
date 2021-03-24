@@ -18,7 +18,7 @@ class ContentView: UIViewController, UICollectionViewDelegate, UICollectionViewD
     {
         super.viewDidLoad()
         
-        self.title = "Art Attack"
+        self.title = "My Photos"
         
         let layout = UICollectionViewFlowLayout()
         
@@ -26,7 +26,7 @@ class ContentView: UIViewController, UICollectionViewDelegate, UICollectionViewD
         myCollectionView.delegate=self
         myCollectionView.dataSource=self
         myCollectionView.register(PhotoCell.self, forCellWithReuseIdentifier: "Cell")
-        myCollectionView.backgroundColor=UIColor.gray
+        myCollectionView.backgroundColor=UIColor.systemBackground
         self.view.addSubview(myCollectionView)
         
         myCollectionView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.RawValue(UInt8(UIView.AutoresizingMask.flexibleWidth.rawValue) | UInt8(UIView.AutoresizingMask.flexibleHeight.rawValue)))
@@ -49,10 +49,11 @@ class ContentView: UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        //print(indexPath)
+        
         let vc=ImagePreviewVC()
         vc.imgArray = self.imageArray
         vc.passedContentOffset = indexPath
+        vc.mindex = indexPath.item
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
