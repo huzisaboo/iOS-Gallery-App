@@ -17,9 +17,8 @@ class ContentView: UIViewController, UICollectionViewDelegate, UICollectionViewD
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
         
-        self.title = "Photo Gallary App"
+        self.title = "Art Attack"
         
         let layout = UICollectionViewFlowLayout()
         
@@ -27,7 +26,7 @@ class ContentView: UIViewController, UICollectionViewDelegate, UICollectionViewD
         myCollectionView.delegate=self
         myCollectionView.dataSource=self
         myCollectionView.register(PhotoCell.self, forCellWithReuseIdentifier: "Cell")
-        myCollectionView.backgroundColor=UIColor.white
+        myCollectionView.backgroundColor=UIColor.gray
         self.view.addSubview(myCollectionView)
         
         myCollectionView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.RawValue(UInt8(UIView.AutoresizingMask.flexibleWidth.rawValue) | UInt8(UIView.AutoresizingMask.flexibleHeight.rawValue)))
@@ -35,7 +34,7 @@ class ContentView: UIViewController, UICollectionViewDelegate, UICollectionViewD
         GetPhotos()
     }
     
-    //MARK: CollectionView
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         return imageArray.count
@@ -57,17 +56,18 @@ class ContentView: UIViewController, UICollectionViewDelegate, UICollectionViewD
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    //set the size of each cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         let width = collectionView.frame.width
         if (DeviceInfo.Orientation.isPortrait)
         {
-           return CGSize(width: width/4 - 1, height: width/4 - 1)
+           return CGSize(width: width/2 - 1, height: width/2 - 1)
         }
         else
         {
-           return CGSize(width: width/6 - 1, height: width/6 - 1)
-      }
+           return CGSize(width: width/4 - 1, height: width/4 - 1)
+        }
     }
     
     override func viewWillLayoutSubviews()
@@ -86,13 +86,13 @@ class ContentView: UIViewController, UICollectionViewDelegate, UICollectionViewD
         return 1.0
     }
     
-    //MARK: grab photos
+
     func GetPhotos()
     {
         imageArray = []
         
         DispatchQueue.global(qos: .background).async {
-           // print("This is run on the background queue")
+
             let imgManager=PHImageManager.default()
             
             let requestOptions=PHImageRequestOptions()
@@ -103,8 +103,7 @@ class ContentView: UIViewController, UICollectionViewDelegate, UICollectionViewD
             fetchOptions.sortDescriptors=[NSSortDescriptor(key:"creationDate", ascending: false)]
             
             let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-            //print(fetchResult)
-            //print(fetchResult.count)
+
             if (fetchResult.count > 0) {
                 for i in 0..<fetchResult.count
                 {
@@ -120,7 +119,7 @@ class ContentView: UIViewController, UICollectionViewDelegate, UICollectionViewD
             print("imageArray count: \(self.imageArray.count)")
             
             DispatchQueue.main.async {
-                //print("This is run on the main queue, after the previous code in outer block")
+
                 self.myCollectionView.reloadData()
             }
         }
